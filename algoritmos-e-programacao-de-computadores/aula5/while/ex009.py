@@ -4,6 +4,7 @@ diferença = []
 valorN = 0
 menor = 0
 cont = 0
+mais_proximo = 0
 qnt = int(input('Digite quantos elementos deseja adicionar a um conjunto: '))
 if qnt > 0:
     while qnt != 0:
@@ -12,8 +13,8 @@ if qnt > 0:
     valorN = float(input('Digite o valor N: '))
     for n in conjunto:
         diferença.append(n-valorN)
-        if (n-valorN) == 0:
-            menor = n
+        if (valorN-n) == 0:
+            mais_proximo = n
             cont += 1
     for posição, diferença_numero in enumerate(diferença):
         if cont >= 1:

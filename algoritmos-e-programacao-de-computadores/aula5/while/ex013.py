@@ -10,15 +10,13 @@ n1 = int(input('Digite um Valor pra N1: '))
 n2 = int(input('Digite um Valor para N2: '))
 cont = 0
 for pos, i in enumerate(lista):
-    if cont == 2:
+    if cont == 1:
         break
-    elif i == n1:
-        cont += 1
-    elif i == n2:
+    elif i == n1 and lista[pos+1] == n2:
         cont += 1
     elif pos > 1:
         cont = 0
-if cont == 2:
+if cont == 1:
     print(f'Sim, os numeros {n1} e {n2} são sequencia na lista')
 else:
     print(f'Não, os numeros {n1} e {n2} não são sequencia na lista')

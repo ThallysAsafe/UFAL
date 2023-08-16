@@ -1,7 +1,5 @@
 n = int(input())
-fat = 1
-def fatorial(n):
-    fat = fat * n
-    n -= 1
-    return(fat)
-print(fatorial(n))
+c = 0
+for i in range(n+1):
+    c += i*i
+print(c)

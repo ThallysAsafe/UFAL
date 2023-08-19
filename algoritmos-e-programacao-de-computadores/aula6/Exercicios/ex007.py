@@ -6,7 +6,7 @@ def calculandomedia(lista):
     media = soma / len(lista)   
     return media 
 
-def desvios_padrao(lista, media):
+def variancia(lista, media):
     desvio = 0
     for numeros in lista:
         desvio += (numeros - media)**2
@@ -16,6 +16,6 @@ def desvios_padrao(lista, media):
 lista = [0,1,2,3,4,5,6,7,8,9,10]
 media = calculandomedia(lista)
 print(media)
-print(desvios_padrao(lista, media))
+print(variancia(lista, media))
 
  

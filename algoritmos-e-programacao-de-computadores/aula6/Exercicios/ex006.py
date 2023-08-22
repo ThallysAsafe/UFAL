@@ -9,7 +9,7 @@ def permutacao(palavra_a,palavra_b):
         for letra_b in palavra_b:
             if letra_a == letra_b:
                 resultado += 1
-    if resultado == len(palavra_a):
+    if resultado >= len(palavra_a) and len(palavra_a) == len(palavra_b):
         print('É uma permutação')
     else:
         print('Não é uma permutação')

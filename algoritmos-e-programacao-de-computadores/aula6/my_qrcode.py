@@ -1,4 +1,4 @@
 import qrcode
-img = qrcode.make('Thallis é um medico')
+img = qrcode.make('SAGFCGA')
 type(img) 
-img.save("j.png")
+img.save("js.png")

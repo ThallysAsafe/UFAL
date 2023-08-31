@@ -1,47 +1,41 @@
 # # 3. Escreva um programa para armazenar uma agenda de telefones em um dicionário. Cada pessoa pode ter um ou mais telefones e a chave do dicionário é o nome da pessoa. Seu programa deve ter as seguintes funções:
 
 # incluirNovoNome – essa função acrescenta um novo nome na agenda, com um ou mais telefones. Ela deve receber como argumentos o nome e os telefones.
-listaTelefone = {}
-def incluirNovoNome(listaTelefone, nome=''):
-    i = 1
-    print(listaTelefone)
-    condicao = True
-    if nome == '':
-        nome = input('Digite o nome do Contato: ')
-    numero = []
-    while condicao == True:
-        numero.append(input(f'{i}º Numero: '))
+# incluirTelefone – essa função acrescenta um telefone em um nome existente na agenda. Caso o nome não exista na agenda, você deve perguntar se a pessoa deseja incluí­lo. Caso a resposta seja afirmativa, use a função anterior para incluir o novo nome. ­ ­ 
+# excluirTelefone – essa função exclui um telefone de uma pessoa que já está na agenda. Se a pessoa tiver apenas um telefone, ela deve serexcluída da agenda.
+# excluirNome – essa função exclui uma pessoa da agenda. ­ 
 
-        next = input('Deseja adicionar mais um numero: [S/N]').upper()
-        i += 1
-        if next == 'N':
+def incluirNovoNome(listaTelefone, nome=''):
+    numeros = []
+    while numeros == [] or continuar == 'S':
+        if nome == '':
+            nome = input('Digite o nome do Contato: ')
+        numero = input(f'Numero para {nome}: ')
+        numeros.append(numero)
+        continuar = input('Deseja adicionar mais um numero: [S/N]').upper()
+        if continuar == 'N':
             break
-        elif next != 'S':
-            print('Resposta inválida, porfavor digite novamente')
-            while condicao == True:
-                next = input('Deseja adicionar mais um numero: [S/N]').upper()
-                if next == "S" or next == 'N':
-                    condicao = False
-    listaTelefone[nome] = numero # erro aqui
+        elif continuar != 'S':
+            print('Resposta inválida, por favor digite novamente')
+    if listaTelefone == {}:
+        listaTelefone[nome] = numeros
+    elif listaTelefone[nome] != numeros:
+        listaTelefone[nome] += numeros  
     print('Contato adicionado com êxito!')
     return listaTelefone
 
-# incluirTelefone – essa função acrescenta um telefone em um nome existente na agenda. Caso o nome não exista na agenda, você deve perguntar se a pessoa deseja incluí­lo. Caso a resposta seja afirmativa, use a função anterior para incluir o novo nome. ­ ­ 
 def incluirTelefone(listaTelefone):
-    contador = 0
+    contador = 1
     nome = input('Em qual contato você quer adicionar um novo numero?: ')
     for contatos in listaTelefone.keys():
         if contatos == nome:
             listaTelefone = incluirNovoNome(listaTelefone,nome)
             return listaTelefone
         else:
-            if len(listaTelefone) == 0:
-                break
             contador += 1
-    if contador >= len(listaTelefone.keys()) or len(listaTelefone.keys()) == 0:
+    if contador > len(listaTelefone.keys()) or len(listaTelefone.keys()) == 0:
         adicionarContato = input('Contato Não Existente. Deseja incluir esse Contato? [S/N]').upper()
         if adicionarContato == 'S':
-            print(listaTelefone[nome])
             listaTelefone = incluirNovoNome(listaTelefone,nome)
             return listaTelefone
         elif adicionarContato == 'N':
@@ -55,7 +49,6 @@ def incluirTelefone(listaTelefone):
                 elif adicionarContato == 'N':
                     return print('Contato não adicionado!')
 
-# excluirTelefone – essa função exclui um telefone de uma pessoa que já está na agenda. Se a pessoa tiver apenas um telefone, ela deve serexcluída da agenda.
 def excluirTelefone(listaTelefone):
     for contato in listaTelefone.keys():
         print(f'{contato}')
@@ -79,18 +72,22 @@ def excluirTelefone(listaTelefone):
             print('Contato inexistente')
     return listaTelefone
 
-# excluirNome – essa função exclui uma pessoa da agenda. ­ 
 def excluirNome(listaTelefone):
+    if len(listaTelefone.keys()) > 0:
+        for contato in listaTelefone.keys():
+            print(f'{contato}')
     contato = input('Digite o contato quer excluir da Agenda: ')
     del listaTelefone[contato]
     
-# consultarTelefone – essa função retorna os telefones de uma pessoa na agenda.
 def consultarTelefone(listaTelefone):
     print(listaTelefone)
-    print('Contatos:')
-    for contato in listaTelefone.keys():
-        print(f'{contato}')
-    contato = input('Digite o contato que deve ser exibido: ')
+    if len(listaTelefone.keys()) > 0:
+        print('Contatos:')
+        for contato in listaTelefone.keys():
+            print(f'{contato}')
+        contato = input('Digite o contato que deve ser exibido: ')
+    else:
+        print('Não tem nenhum contato na lista')
     cond = True
     for i in listaTelefone.keys():
         if contato == i:
@@ -102,6 +99,7 @@ def consultarTelefone(listaTelefone):
         print('Contato inexistente!')
     return listaTelefone
 
+listaTelefone = {}
 while True:
     opção = int(input('''1- Adicionar Novo Contato
 2- Adicionar Novo Telefone
@@ -114,15 +112,17 @@ Escolha uma das opções: '''))
         print('Finalizando programa!')
         break
     elif opção == 1:
-        incluirNovoNome(listaTelefone)
+        listaTelefone = incluirNovoNome(listaTelefone)
     elif opção == 2:
-        incluirTelefone(listaTelefone)
+        listaTelefone = incluirTelefone(listaTelefone)
     elif opção == 3:
-        excluirTelefone(listaTelefone)
+        listaTelefone = excluirTelefone(listaTelefone)
     elif opção == 4:
-        excluirNome(listaTelefone)
+        listaTelefone = excluirNome(listaTelefone)
     elif opção == 5:
-        consultarTelefone(listaTelefone)
+        listaTelefone = consultarTelefone(listaTelefone)
     else:
         print('Opção inválida')
 print('Programa Finalizado com Sucesso!')
+
+print(listaTelefone)

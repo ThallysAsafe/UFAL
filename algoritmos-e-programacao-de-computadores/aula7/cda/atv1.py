@@ -1,12 +1,9 @@
-# crie um conjunto de cores e conjunto de estilos musicais
-lista = []
-cores = {('azul',(0,0,255)),('verde',(0,255,0)),('red',(255,0,0))}
-lista.append(cores)
-print(cores)
-musicas = {'Forró','Axe','Rock','Reggae'}
-lista.append(musicas)
-print(musicas)
-
-print(lista)
-print(lista[1])
-print(lista[1])
+num = int(input('Digite um numero inteiro: '))
+resultado = 0
+for i in range(1,num+1):
+    if num % i == 0:
+        resultado += 1
+if resultado == 2:
+    print(f'{num} é um numero primo')
+else:
+    print(f'{num} não é um numero primo')

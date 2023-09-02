@@ -18,7 +18,7 @@ def incluirNovoNome(listaTelefone, nome=''):
         elif continuar != 'S':
             print('Resposta inválida, por favor digite novamente')
     if listaTelefone == {}:
-        listaTelefone[nome] = numeros
+        listaTelefone[nome] = numeros   
     elif listaTelefone[nome] != numeros:
         listaTelefone[nome] += numeros  
     print('Contato adicionado com êxito!')

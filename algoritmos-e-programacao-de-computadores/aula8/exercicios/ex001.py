@@ -5,6 +5,6 @@ texto = texto.split('\n')
 lista = []
 identidade = {}
 for linha in texto:
-    atributos = linha.split(' ')
-    identidade[atributos[0]] = atributos[1]
+    rg, nome = linha.replace('\n','').split(' ')
+    identidade[rg] = nome
 print(identidade)

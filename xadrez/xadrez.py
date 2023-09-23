@@ -15,6 +15,92 @@ pj = 0
 i = pi
 j = pj
 
+def movimento_rei_valido(posI,posJ,posTempI,posTempJ):
+    dx = abs(posI-posTempI)
+    dy = abs(posJ-posTempJ)
+
+    if dx <= 1 and dy <= 1 and posI  != posTempI and posJ != posTempJ:
+        return "Movimento válido do rei."
+    else:
+        return "Movimento inválido do rei."
+
+# Exemplo de uso
+posI = 2
+posJ = 2
+
+posTempI=3
+posTempJ=3
+
+resultado = movimento_rei_valido(posI,posJ,posTempI,posTempJ)
+print(resultado)
+
+def is_check(peca,tabuleiro):
+    if peca[1] == 'B':
+        for linha in range(8):
+            for coluna in range(8):
+                if a[linha][coluna] == 'KB':
+                    posI =  linha
+                    posJ = coluna
+                
+        # horizontal 
+        for j in range(len(a)):
+            if posJ > 1 and posJ < 7:
+                if a[posI][posJ-1][1] != 'B' and a[posI][posJ+1][1] != 'B':
+                    if a[posI][j][1] == 'P':
+                        return True
+                    else:
+                        break
+                else:
+                    break
+            elif posJ == 0:
+                if a[posI][posJ+1][1] != 'B':
+                    if a[posI][j][1] == 'P':
+                        return True
+                    else:
+                        break
+                else:
+                    break
+    elif peca[1] == 'P':
+        for linha in range(8):
+            for coluna in range(8):
+                if a[linha][coluna] == 'KP':
+                    posI =  linha
+                    posJ = coluna
+                
+        # horizontal AINDA FALTA FAZER QND O REI TIVER EM POSIÇAO 0 OU 7
+        for j in range(len(a)):
+            if posJ > 1 and posJ < 7:
+                if a[posI][posJ-1][1] != 'P' and a[posI][posJ+1][1] != 'P':
+                    if a[posI][j][1] == 'B':
+                        return True
+                    else:
+                        break
+                else:
+                    break
+            elif posJ == 0:
+                if a[posI][posJ+1][1] != 'P':
+                    if a[posI][j][1] == 'B':
+                        return True
+                    else:
+                        break
+                else:
+                    break
+            elif posJ == 7:
+                if a[posI][posJ-1][1] != 'P':
+                    if a[posI][j][1] == 'B':
+                        return True
+                    else:
+                        break
+                else:
+                    break
+
+                
+    return False
+
+    
+            
+
+
 
 
 

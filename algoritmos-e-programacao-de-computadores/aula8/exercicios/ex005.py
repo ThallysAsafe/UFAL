@@ -120,11 +120,3 @@ while opc != 5:
         print('Finalizando programa...')
         sleep(1)
         print('Programa finalizado com sucesso!')
-
-
-
-# def exibirAgenda():
-#     agenda = lerAgenda()
-#     for i in agenda:
-#         i = i.replace('\n','').split(', ')
-#         print(i)

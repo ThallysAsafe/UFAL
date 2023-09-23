@@ -1,23 +1,49 @@
 a = [["TP","CP","BP","KP","RP","BP","CP","TP"],
     ["PP","PP","PP","PP","PP","PP","PP","PP"],
     ["  ","  ","  ","  ","  ","  ","  ","  "],
+    ["PB","  ","  ","  ","  ","  ","  ","  "],
     ["  ","  ","  ","  ","  ","  ","  ","  "],
     ["  ","  ","  ","  ","  ","  ","  ","  "],
-    ["  ","  ","  ","  ","  ","  ","  ","  "],
-    ["PB","PB","PB","PB","PB","PB","PB","PB"],
+    ["  ","PB","PB","PB","PB","PB","PB","PB"],
     ["TB","CB","BB","KB","RB","BB","CB","TB"]
 ]
-posi = 5
-posj = 2
+posi = 3
+posj = 0
 
-pi = 7
-pj = 1
+pi = 1
+pj = 0
+i = pi
+j = pj
+
+
+
+
+'''
+cont = 0
+# Movimento peao Preto
+while cont < (posTempI - posI):
+    i += 1
+    if a[i][j] != '  ':
+      # return False
+      print(False)
+    cont += 1
+# Movimento peao Branco    
+while cont < (posI - posTempI):
+            posI -= 1
+            if tabuleiro[posI][posJ] != '  ':
+            # return False
+                print(False)
+'''
+
+
 
 # Verificando movimento  do Rainha
-i = pi
+'''i = pi
 j = pj
 cont = 0
 if (pi == posi and pj != posj) or (pi != posi and pj == posj):
+    # Herdando poder TORRE
+    def Torre()
     if posi != pi:
         # vertical
         for i in range(len(a)):
@@ -36,6 +62,9 @@ if (pi == posi and pj != posj) or (pi != posi and pj == posj):
                 else:
                     # MATAR
                     print(False)
+else:
+    herdando poder bispo
+    def Bispo 
     if pi > posi:
         if pj > posj:
             while cont < (pj - posj):
@@ -82,7 +111,7 @@ if (pi == posi and pj != posj) or (pi != posi and pj == posj):
                         # MATAR
                         print(False)
                 cont += 1
-
+'''
 
 
 

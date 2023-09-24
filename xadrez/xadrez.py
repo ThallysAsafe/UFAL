@@ -46,20 +46,37 @@ def is_check(peca,tabuleiro):
         for j in range(len(a)):
             if posJ > 1 and posJ < 7:
                 if a[posI][posJ-1][1] != 'B' and a[posI][posJ+1][1] != 'B':
-                    if a[posI][j][1] == 'P':
+                    if a[posI][j] == 'TP' or a[posI][j] == 'RP':
                         return True
-                    else:
-                        break
-                else:
-                    break
+                   
             elif posJ == 0:
                 if a[posI][posJ+1][1] != 'B':
-                    if a[posI][j][1] == 'P':
+                    if a[posI][j] == 'TP' or a[posI][j] == 'RP':
                         return True
-                    else:
-                        break
-                else:
-                    break
+                   
+            elif posJ == 7:
+                if a[posI][posJ-1][1] != 'P':
+                    if a[posI][j] == 'TP' or a[posI][j] == 'RP':
+                        return True
+                   
+        
+        # Vertical BRANCO
+        for i in range(len(a)):
+            if posI > 1 and posI < 7:
+                if a[posI-1][posJ][1] != 'B' and a[posI+1][posJ][1] != 'B':
+                    if a[i][posJ] == 'TP' or a[i][posJ] == 'TP':
+                        return True
+                   
+            elif posI == 0:
+                if a[posI+1][posJ][1] != 'B':
+                    if a[i][posJ] == 'TP' or a[i][posJ] == 'RP':
+                        return True
+                   
+            elif posJ == 7:
+                if a[posI][posJ-1][1] != 'B':
+                    if a[posI][j] == 'TP' or a[posI][j] == 'RP':
+                        return True
+                   
     elif peca[1] == 'P':
         for linha in range(8):
             for coluna in range(8):
@@ -67,34 +84,41 @@ def is_check(peca,tabuleiro):
                     posI =  linha
                     posJ = coluna
                 
-        # horizontal AINDA FALTA FAZER QND O REI TIVER EM POSIÇAO 0 OU 7
+        # horizontal Preto
         for j in range(len(a)):
             if posJ > 1 and posJ < 7:
                 if a[posI][posJ-1][1] != 'P' and a[posI][posJ+1][1] != 'P':
-                    if a[posI][j][1] == 'B':
+                    if a[posI][j] == 'TB' or a[posI][j] == 'RB':
                         return True
-                    else:
-                        break
-                else:
-                    break
+                   
             elif posJ == 0:
                 if a[posI][posJ+1][1] != 'P':
-                    if a[posI][j][1] == 'B':
+                    if a[posI][j] == 'TB' or a[posI][j] == 'RB':
                         return True
-                    else:
-                        break
-                else:
-                    break
+                   
             elif posJ == 7:
                 if a[posI][posJ-1][1] != 'P':
-                    if a[posI][j][1] == 'B':
+                    if a[posI][j] == 'TB' or a[posI][j] == 'RB':
                         return True
-                    else:
-                        break
-                else:
-                    break
+                   
 
-                
+        # Vertical Preto
+        for i in range(len(a)):
+            if posI > 1 and posI < 7:
+                if a[posI-1][posJ][1] != 'P' and a[posI+1][posJ][1] != 'P':
+                    if a[i][posJ] == 'TB' or a[i][posJ] == 'RB':
+                        return True
+                   
+            elif posI == 0:
+                if a[posI+1][posJ][1] != 'P':
+                    if a[i][posJ] == 'TB' or a[i][posJ] == 'RB':
+                        return True
+                   
+            elif posJ == 7:
+                if a[posI][posJ-1][1] != 'B':
+                    if a[posI][j] == 'TB' or a[posI][j] == 'RB':
+                        return True
+                         
     return False
 
     

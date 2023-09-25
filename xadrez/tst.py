@@ -1,11 +1,11 @@
 tabuleiro = [["TP","CP","BP","KP","RP","BP","CP","TP"],
-            ["PP","PP","PP","PP","PP","PP","PP","PP"],
+            ["PP","PP","  ","PP","PP","PP","PP","PP"],
             ["  ","  ","  ","  ","  ","  ","  ","  "],
-            ["  ","  ","  ","  ","  ","  ","  ","  "],
-            ["  ","PB","  ","  ","  ","  ","  ","  "],
-            ["  ","RP","","  ","PB","  ","  ","  "],
-            ["PB","  ","PB","PB","  ","PB","PB","PB"],
-            ["TB","CB","BB","KB","RB","BB","CB","TB"]]
+            ["  ","  ","  ","PP","  ","  ","  ","  "],
+            ["RP","PB","  ","  ","  ","  ","  ","  "],
+            ["  ","KB","  ","  ","PB","  ","  ","  "],
+            ["  ","  ","PB","PB","  ","PB","PB","PB"],
+            ["TB","CB","BB","PB","RB","BB","CB","TB"]]
 
 for linha in range(8):
     for coluna in range(8):
@@ -86,7 +86,66 @@ if posJ > 0 and posJ < 7:
                 break
             cont -= 1
     elif posI > 0 and posI < 7:
-        cont
+        print(3)
+        i = posI
+        j = posJ
+        while i <= 7 and j >= 0:
+            if tabuleiro[i][j][1] != 'B' or tabuleiro[i][j] == 'KB':
+                print(tabuleiro[i][j])
+                if tabuleiro[i][j] == 'RP' or tabuleiro[i][j] == 'BP':
+                    print(False)
+                    break
+            i += 1
+            j -= 1
+            
+        if j == -1:
+            print(5)
+            while j <= 7:
+                if tabuleiro[i][j][1] != 'B' or tabuleiro[i][j] == 'KB':
+                    print(tabuleiro[i][j])
+                    if tabuleiro[i][j] == 'RP' or tabuleiro[i][j] == 'BP' or tabuleiro[posI-1][posJ-1] == 'PP' or tabuleiro[posI-1][posJ+1] == 'PP':
+                        print(False)
+                        break
+                    elif tabuleiro[i][j] == 'PP':
+                        print(True)
+                i -= 1
+                j += 1
+        i = posI
+        j = posJ
+        while i <= 7 and j >= 0:
+            print(j)
+            if tabuleiro[i][j][1] != 'B' or tabuleiro[i][j] == 'KB':
+                print(tabuleiro[i][j])
+                if tabuleiro[i][j] == 'RP' or tabuleiro[i][j] == 'BP':
+                    print(False)
+                    break
+            i -= 1
+            j -= 1
+        if j == 0:
+            while j <= 7 and i <= 7:
+                if tabuleiro[i][j][1] != 'B' or tabuleiro[i][j] == 'KB':
+                    print(tabuleiro[i][j])
+                    if tabuleiro[i][j] == 'RP' or tabuleiro[i][j] == 'BP':
+                        print(False)
+                        break
+                i -= 1
+                j += 1
+        print(4)
+        # while i >= 0 and j <= 7:
+        #     if tabuleiro[i][j][1] != 'B' or tabuleiro[i][j] == 'KB':
+        #         print(tabuleiro[i][j])
+        #         if tabuleiro[i][j] == 'RP' or tabuleiro[i][j] == 'BP' or tabuleiro[posI-1][posJ-1] == 'PP':
+        #             print(False)
+        #             break
+        #     elif tabuleiro[i][j][1] == 'P':
+        #             print(True)
+        #             break     
+        #     i -= 1
+        #     j += 1
+
+                
+
+
 
 # if (posI and posJ) == 0 or (posI and posJ) == 8:
 #     for i in range(len(tabuleiro)):

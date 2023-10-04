@@ -1,5 +1,5 @@
-conjunto = set([1,3,5,4,3,8,9,12,3])
-conjunto2 = set([-1,-5,-3,-2,1,3,5])
+conjunto = set([1, 7, 3, 9, 0, 8, 5, 6, 2, 4])
+conjunto2 = set([9, 0, 7, 5, 8, 4, 6, 2, 3, 1])
 
 #uniao, junção de todos os numeros
 print(conjunto | conjunto2)

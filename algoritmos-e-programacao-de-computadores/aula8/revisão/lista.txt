@@ -1,0 +1,10 @@
+Crie um programa que escreva "Hello, World!" em um arquivo chamado "hello.txt".
+Leia o conteúdo do arquivo "hello.txt" e exiba-o na tela.
+Crie um programa que pergunte ao usuário seu nome e escreva-o em um arquivo chamado "nome.txt".
+Leia o conteúdo do arquivo "nome.txt" e cumprimente o usuário pelo nome.
+Crie um programa que liste todos os arquivos e pastas em um diretório específico.
+Crie um programa que conte quantas linhas existem em um arquivo de texto.
+Crie um programa que leia um arquivo CSV e exiba seu conteúdo no formato de tabela.
+Crie um programa que copie o conteúdo de um arquivo para outro.
+Crie um programa que renomeie um arquivo.
+Crie um programa que exclua um arquivo.

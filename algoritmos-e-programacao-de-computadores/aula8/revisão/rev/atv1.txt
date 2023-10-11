@@ -1,0 +1,9 @@
+Contagem de Linhas:
+Escreva um programa que lê um arquivo de texto e conta quantas linhas ele possui.
+
+
+
+
+
+
+

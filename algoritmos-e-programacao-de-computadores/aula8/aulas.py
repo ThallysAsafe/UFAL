@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv('vendas.csv')
+df = pd.read_csv('vendas.csv') # comando para ler o arq, dependendo q tipo for o arqv a função muda
 print(df) # mostra a tabela inteira
 print(df.head(10)) # mostra as x primeiras
 print(df.tail(3)) # mostra as x ultimas

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Bases</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #333;
+            color: #fff;
+        }
+        h1 {
+            color: #fff;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        form, #resultado-container {
+            margin: 0 auto;
+            max-width: 400px;
+            padding: 20px;
+            background: #444;
+            border: 1px solid #555;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label, input, select {
+            display: block;
+            margin: 10px 0px;
+            text-align: left;
+            color: #fff; /* Cor do texto */
+        }
+        input[type="text"], select {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background: #666; /* Cor do fundo do input */
+            color: #fff; /* Cor do texto do input */
+        }
+        button {
+            background: #555;
+            color: #fff;
+            border: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #777;
+        }
+        #resultado-container {
+            margin: 20px auto; /* Adicionando margin para centralizar o div */
+            font-weight: 800;
+            text-align: center;
+            color: #fff; /* Cor do texto no resultado */
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Bases</h1>
+    <form method="POST">
+        <label for="numero">Número:</label>
+        <input type="text" name="numero" required>
+        
+        <label for="base_origem">Base de Origem (2 a 36):</label>
+        <input type="text" name="base_origem" min="2" max="36" required>
+        
+        <label for="base_destino">Base de Destino (2 a 36):</label>
+        <input type="text" name="base_destino" min="2" max="36" required>
+        
+        <button type="submit">Converter</button>
+    </form>
+
+    <div id="resultado-container">
+        <!-- O resultado será exibido aqui -->
+        <h1>Resultado:</h1>
+        {% if resultado != '' %}
+            <p>{{ resultado }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

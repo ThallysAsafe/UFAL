@@ -6,3 +6,7 @@ for empresa in lista:
         maiorempresa = empresa
         maioracao = lista[empresa]
 print(maiorempresa,maioracao)        
+
+print('quadrinhos')
+    for pos, quadrinhos in enumerate(shop_items['quadrinhos']):
+        print(f"{pos} - Produto: {quadrinhos['Nome']} | Tamanho: {quadrinhos['Tamanhos']}| Preço: {quadrinhos['Preço']} ")

@@ -2,6 +2,7 @@
 lista1 = [1,3,2,2,7]
 lista2 = [2,1,3]
 lista3 = []
+
 for numero in lista1: # O(N)
     cont = 0
     cond = True

@@ -5,7 +5,6 @@ def busca_binaria2(elemento, lista, i=0, fim= None):
     if fim is None:
         fim = len(lista)-1
     meio = (fim+i)//2
-    print(i,meio,fim)
     if i > fim:
         lista.insert(i, elemento)  
         return lista 

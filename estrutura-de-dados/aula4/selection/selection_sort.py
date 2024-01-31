@@ -1,4 +1,4 @@
-notas = [2,3,5,8,7,10,9,6,1]
+notas = [9,8,7,6,5,4,3,2,1]
 for i in range(len(notas)-1):
     # seleciona o menor elemento
     menor = i

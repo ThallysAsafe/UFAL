@@ -1,0 +1,1 @@
+# 05)Escreva uma função que realiza a ordenação parcial de uma lista usando Insertion Sort, ordenando apenas os primeiros k elementos.

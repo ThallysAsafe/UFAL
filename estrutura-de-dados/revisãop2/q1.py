@@ -1,0 +1,7 @@
+# 01) Descreva com suas palavras o processo de ordenação realizado nos algoritmos
+# Insertion Sort e Selection Sort, em seguida, identifique a ordem de complexidade
+# desses algoritmos.
+
+# Insertion Sort: O insertion sort tem que começar com o item 1 da lista, e faz comparação com o antecessor se ele é maior ou menor, se ele for menor que o antecessor troca a posição com o antecessor, se for maior ou se for o item selecionado for o item zero da lista não troca e passa para o proximo item da lista,  e assim sucessivamente até finalizar a lista. A ordem da complexidade é O (N²), pois contem a presença de 2 laços de repetição de tamanho n
+
+# Selection Sort: O selection sort começa com o item na posição zero da lista, e faz comparação com sucessor se ele é maior ou menor do que ele, se ele(o item da posição zero) for menor passa pro proximo item da lista para compara com o proximo(nesse momento o inicial, no caso o item zero), ai compara novamente se é maior ou menor, se ele for maior que o outro, troca de posição os dois, ai volta para o primeiro item da lista da parte não ordenada, nesse exemplo, seria o item que está na posição 1, e ele iria repetir o mesmo processo até comparar todos, obs: para a estrutura ter exito é necessario que o primeiro laço de repetição só vá até o penúltimo item da lista, pois o segundo laço será encarregado de chamar o ultimo item da lista para comparação.  A ordem da complexidade é O (N²), pois contem a presença de 2 laços de repetição de tamanho n

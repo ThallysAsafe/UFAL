@@ -31,3 +31,4 @@ def combinacao_for(lista1, lista2):
         elif lista1[i] < lista2[j]:
             lista.append(lista2[j])
             j += 1
+        

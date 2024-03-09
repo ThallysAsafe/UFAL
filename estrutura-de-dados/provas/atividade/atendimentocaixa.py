@@ -14,12 +14,13 @@ class Fila:
         self.fim = None
         
     def inserir(self,valor):
-        c = Celula(valor)
-        if self.estaVazia():
-            self.inicio = c
-        else:
-            self.fim.proximo = c
-        self.fim = c
+        if self.cond:
+            c = Celula(valor)
+            if self.estaVazia():
+                self.inicio = c
+            else:
+                self.fim.proximo = c
+            self.fim = c
         
         
     def remover(self):
@@ -38,14 +39,13 @@ class Fila:
         
     def imprimirCaixa(self):
         aux = self.inicio
-        i = 1
-        while aux != None:
-            print(f"{aux.cliente}",end=" ")
-            aux = aux.proximo
-            i += 1
+        if aux != None:
+            return aux.cliente
+        else:
+            return "Vazia"
     
     def imprimirFila(self):
-        
+        print("++=====================================++") 
         aux = self.inicio
         if self.cond or aux != None:
             i = 1
@@ -66,36 +66,42 @@ class Fila:
         else:
             print("Horário de Atendimento fechado")
         
+class Atendente:
+    nome = None
+    def __init__(self,nome):
+        self.nome = nome
+        self.caixa = Fila()
 class Banco:
     fila = Fila()
     historicoDia = Fila()
-    caixa01 = Fila()
-    caixa02 = Fila()
-    caixa03 = Fila() 
+    atendente = [None]*3
+    def __init__(self):
+        for i in range(3):
+            nome = input(f"Nome do Atendente do Dia do Caixa-{i+1}: ")
+            self.atendente[i] = Atendente(nome)
+            
     def verSituacao(self):
         self.fila.imprimirFila()
-        print("-------------------")
-        print("Caixa-01:",end=" ")
-        self.caixa01.imprimirCaixa()
-        print("\nCaixa-02:",end=" ")
-        self.caixa02.imprimirCaixa()
-        print("\nCaixa-03:",end=" ")
-        self.caixa03.imprimirCaixa()
-        print("\n-------------------")
+        self.verSituacaoCaixas()
         
     def verSituacaoCaixas(self):
-        print("-------------------")
-        print("Caixa-01:",end=" ")
-        self.caixa01.imprimirCaixa()
-        print("\nCaixa-02:",end=" ")
-        self.caixa02.imprimirCaixa()
-        print("\nCaixa-03:",end=" ")
-        self.caixa03.imprimirCaixa()
-        print("\n-------------------")
+        print("++=====================================++") 
+        print(f"Caixa-01: {self.atendente[0].nome}")
+        print(f"Cliente: {self.atendente[0].caixa.imprimirCaixa()}")
+        print(f"Caixa-02: {self.atendente[1].nome}")
+        print(f"Cliente: {self.atendente[1].caixa.imprimirCaixa()}")
+        print(f"Caixa-03: {self.atendente[2].nome}")
+        print(f"Cliente: {self.atendente[2].caixa.imprimirCaixa()}")
+        print("++=====================================++") 
+        
+
     
-def banco():    
+     
+def banco():
+    print("++=====================================++")    
+    print("     Sistema de Atendimento do Banco     ")
+    print("++=====================================++")    
     banco = Banco()
-    print("ALCANBANK")
     while True:
         banco.verSituacao()
         print("""1-Inserir um novo cliente para Fila de atendimento\n2-Inserir cliente no Caixa Vazio\n3-Finalizar Atendimento\n4-Fechar o horario de Atendimento\n5-Encerrar Programa e Mostrar o Histórico de Senhas""")
@@ -105,14 +111,14 @@ def banco():
             banco.historicoDia.inserir(banco.fila.fim.cliente)
         elif op == 2:
             if not banco.fila.estaVazia():
-                if banco.caixa01.estaVazia():
-                    banco.caixa01.inserir(banco.fila.inicio.cliente)
+                if banco.atendente[0].caixa.estaVazia():
+                    banco.atendente[0].caixa.inserir(banco.fila.inicio.cliente)
                     banco.fila.remover()
-                elif banco.caixa02.estaVazia():
-                    banco.caixa02.inserir(banco.fila.inicio.cliente)
+                elif banco.atendente[1].caixa.estaVazia():
+                    banco.atendente[1].caixa.inserir(banco.fila.inicio.cliente)
                     banco.fila.remover()
-                elif banco.caixa03.estaVazia():
-                    banco.caixa03.inserir(banco.fila.inicio.cliente)
+                elif banco.atendente[2].caixa.estaVazia():
+                    banco.atendente[2].caixa.inserir(banco.fila.inicio.cliente)
                     banco.fila.remover()
                 else:
                     print("É necessario terminar o atendimento de 1 dos caixas para chamar o proximo")
@@ -122,24 +128,25 @@ def banco():
             banco.verSituacaoCaixas()      
             liberar = int(input("Digite qual atendimento foi finalizado: "))
             if liberar >= 1 and liberar <= 3:
-                if liberar == 1 and not banco.caixa01.estaVazia():
-                    banco.caixa01.remover()
-                elif liberar == 2 and not banco.caixa02.estaVazia():
-                    banco.caixa02.remover()
-                elif liberar == 3 and not banco.caixa03.estaVazia():
-                    banco.caixa03.remover()
+                if liberar == 1 and not banco.atendente[0].caixa.estaVazia():
+                    banco.atendente[0].caixa.remover()
+                elif liberar == 2 and not banco.atendente[1].caixa.estaVazia():
+                    banco.atendente[1].caixa.remover()
+                elif liberar == 3 and not banco.atendente[2].caixa.estaVazia():
+                    banco.atendente[2].caixa.remover()
                 else:
                     print("Esta Caixa-de-Atendimento está Vazia, chame o proximo da fila")
         elif op == 4:
             banco.fila.cond = False
             print("Horário de Atendimento fechado")
         elif op == 5:
-            if banco.fila.estaVazia() and banco.caixa01.estaVazia() and banco.caixa02.estaVazia() and banco.caixa03.estaVazia():
+            if banco.fila.estaVazia() and banco.atendente[0].caixa.estaVazia() and banco.atendente[1].caixa.estaVazia() and banco.atendente[2].caixa.estaVazia():
                 print("Encerrando Sistema de Atendimento..")
                 break    
             else:
                 print("Ainda Existe Clientes precisando ser atendidos")
     print(f"Historico do Dia: ")
     banco.historicoDia.imprimirFila()
+    print("++=====================================++")
     print("Sistema Encerrado Com Sucesso!")
 banco()
